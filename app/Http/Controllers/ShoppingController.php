@@ -94,37 +94,32 @@ class ShoppingController extends Controller
 
     public function checkout(Request $request)
     {
-    $userId = auth()->id(); // Assuming users must be logged in
-    $total = $request->input('total');
+    // Validate the request data as necessary
 
-    // Example: Validate that the user is authenticated
-    if (!$userId) {
-        return response()->json(['success' => false, 'message' => 'User not authenticated'], 401);
-    }
+    // Process the payment here (add your payment logic)
 
-    // Create the transaction
-    try {
-        $transaction = Transaction::create([
-            'user_id' => $userId,
-            'total' => $total, // Ensure you have the correct field here
-            'status' => 'completed',
-            'shopping_id' => $validatedData['shopping_id'],  // Add shopping_id here
+    // Assuming payment is successful:
+    
+    // Retrieve the cart items from the session
+    $cart = session('cart', []);
+
+    // Loop through the cart items and create a transaction record
+    foreach ($cart as $id => $item) {
+        Transaction::create([
+            'user_id' => auth()->id(), // assuming you have a user
+            'product_id' => $item['id'],
+            'quantity' => $item['quantity'],
+            'price' => $item['price'],
+            // Add more fields as needed
         ]);
-        
-        // Clear the cart session
-        session()->forget('cart');
-
-        return response()->json(['success' => true, 'message' => 'Checkout completed']);
-    } catch (\Exception $e) {
-        // Log the exception with more context
-        \Log::error('Checkout error: ' . $e->getMessage(), [
-            'request' => $request->all(),
-            'user_id' => $userId,
-        ]);
-
-        return response()->json(['success' => false, 'message' => 'An error occurred during checkout.'], 500);
     }
-    }
+
+    // Clear the cart
+    Session::forget('cart');
+
+    // Return a response (you can return JSON or redirect)
+    return response()->json(['success' => true]);
+}
 
 
 }
