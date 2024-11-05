@@ -1,0 +1,124 @@
+/* General body styling */
+.hover\:bg-gray-100:hover {
+    background-color: #f7fafc; /* Tailwind CSS hover color */
+}
+
+body {
+    background-image: url('/photo/welcome.jpg'); /* Background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keeps the background image fixed */
+    display: flex;
+    justify-content: flex-end; /* Center the content horizontally */
+    padding-right: 190px;
+    align-items: center; /* Center the content vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Custom font, fallback to sans-serif */
+    font: bold;
+}
+
+/* Form container styling */
+form {
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2rem; /* Padding inside the form */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 400px; /* Maximum width for the form */
+    width: 100%; /* Ensure full width on smaller screens */
+}
+
+/* Heading styling */
+h2 {
+    color: #333; /* Darker text color */
+    font-size: 1.75rem; /* Heading font size */
+    margin-bottom: 1.5rem; /* Space below the heading */
+    text-align: center; /* Centered heading text */
+}
+
+/* Label styling */
+label {
+    color: #555; /* Darker gray text for labels */
+    font-weight: 500; /* Slightly bold labels */
+}
+
+/* Input field styling */
+input[type="text"], 
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Full width for input fields */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding for input fields */
+    margin-top: 0.25rem; /* Small space above the input */
+    margin-bottom: 1rem; /* Space below the input */
+    font-size: 1rem; /* Font size inside the input */
+    box-sizing: border-box; /* Ensure padding and border are included in the element’s total width */
+}
+
+/* Focus state for input fields */
+input:focus {
+    outline: none;
+    border-color: #4f46e5; /* Border color on focus */
+    box-shadow: 0 0 5px rgba(79, 70, 229, 0.5); /* Subtle shadow on focus */
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    margin-right: 0.5rem; /* Space between checkbox and label */
+}
+
+/* Remember me label styling */
+.inline-flex {
+    color: #333; /* Text color for the checkbox label */
+    font-size: 0.875rem; /* Font size for remember me */
+}
+
+/* Link styling */
+a {
+    color: #ff2600; /* Link color */
+    text-decoration: underline; /* Underline for links */
+}
+
+a:hover {
+    color: #3730a3; /* Darker link color on hover */
+}
+
+/* Button styling */
+button {
+    background-color: #fffdfd; /* Primary button background color */
+    color: rgb(0, 0, 0); /* White text color */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Button text size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #306ba3; /* Darker background on hover */
+}
+
+/* Flex container styling for login actions */
+.flex {
+    display: flex;
+    justify-content: space-between; /* Spread items evenly */
+    align-items: center; /* Align items vertically */
+    margin-top: 1rem; /* Space above the button */
+}
+
+/* Error message styling */
+.text-red-600 {
+    color: #e3342f; /* Red color for error messages */
+    font-size: 0.875rem; /* Small font size for error text */
+    margin-top: 0.25rem; /* Small space above the error message */
+}
+
+/* Responsive behavior */
+@media (max-width: 640px) {
+    form {
+        padding: 1.5rem; /* Reduce padding on smaller screens */
+        width: 90%; /* Wider form on smaller screens */
+    }
+}
